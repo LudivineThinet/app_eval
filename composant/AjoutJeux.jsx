@@ -1,51 +1,58 @@
-import { StyleSheet, Text, View, TextInput, Pressable, } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
+const AjoutJeux = ({ AddJeux, titre, prix, genre, onChangeTitre, onChangePrix, onChangeGenre }) => {
+  return (
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Titre du jeu"
+        value={titre}
+        onChangeText={onChangeTitre}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Prix"
+        value={prix}
+        onChangeText={onChangePrix}
+        keyboardType="numeric"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Genre"
+        value={genre}
+        onChangeText={onChangeGenre}
+      />
 
-const AjoutJeux = ({  AddJeux, onChangeText, }) => {
-    return (
-    <View style={styles.Ajouter}>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={Text}
-          placeholder="Ajoutez un jeux"
-        />
-
-        <Pressable onPress={() => AddJeux(true)}>
-                <Text style={styles.add}>OK</Text>
-              </Pressable>
+      <Pressable style={styles.bouton} onPress={AddJeux}>
+        <Text style={styles.boutonTexte}>OK</Text>
+      </Pressable>
     </View>
-        )}
+  );
+};
 
-
-
-
-
-
+export default AjoutJeux;
 
 const styles = StyleSheet.create({
-    Ajouter: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 20,
-        paddingHorizontal: 10,
-    },
-    input: {
-        flex: 1,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 5,
-        padding: 10,
-        marginRight: 10,
-    },
-    add: {
-        backgroundColor: '#007BFF',
-        color: '#fff',
-        padding: 10,
-        borderRadius: 5,
-        textAlign: 'center',
-    },
-    }); 
-
-export default AjoutJeux
+  container: {
+    marginTop: 10,
+    gap: 10,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: '#edcbf0',
+  },
+  bouton: {
+    backgroundColor: '#007BFF',
+    padding: 12,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  boutonTexte: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+});

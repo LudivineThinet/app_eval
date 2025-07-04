@@ -97,23 +97,43 @@ export default function App() {
     "genre": "Action-Aventure"
   }
 ])
-const [text, onChangeText] = useState('');
+const [titre, setTitre] = useState('');
+  const [prix, setPrix] = useState('');
+  const [genre, setGenre] = useState('');
 
-const AddJeux = () => {
-    if (text.trim() === '') return;
-    setJeux([...jeux, text]);
-    onChangeText('');
+  const AddJeux = () => {
+    if (titre.trim() === '' || prix.trim() === '' || genre.trim() === '') return;
+
+    const nouveauJeu = {
+      id: jeux.length + 1,
+      titre: titre.trim(),
+      prix: parseFloat(prix),
+      genre: genre.trim()
+    };
+
+    setJeux([...jeux, nouveauJeu]);
+    setTitre('');
+    setPrix('');
+    setGenre('');
   };
-
 
   return (
     <View style={styles.container}>
       
-    <ListeJeux jeux={jeux} />
+      <ListeJeux jeux={jeux} />
 
-    <AjoutJeux AddJeux={AddJeux} onChangeText={onChangeText}/>
+      <Text style={styles.Ajout}>Ajouter un nouveau jeu</Text>
+      <AjoutJeux
+        AddJeux={AddJeux}
+        titre={titre}
+        prix={prix}
+        genre={genre}
+        onChangeTitre={setTitre}
+        onChangePrix={setPrix}
+        onChangeGenre={setGenre}
+      />
 
-    <StatusBar style="auto" />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -121,8 +141,22 @@ const AddJeux = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#efdff0',
+    paddingTop: 60,
+    paddingHorizontal: 20,
+  },
+  titre: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#222',
+  },
+  Ajout: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 30,
+    marginBottom: 10,
+    color: '#333',
   },
 });

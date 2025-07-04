@@ -12,8 +12,8 @@ const ItemJeux = ({ item }) => {
 
 const styles = StyleSheet.create({
 item : {
-    backgroundColor: '#f9c2ff',
     marginVertical: 25,
+    backgroundColor: '#edcbf0',
     fontSize: 18,
     padding: 5,
     borderWidth: 1,
