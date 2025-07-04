@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    maxHeight: '50%',
   },
   row: {
     justifyContent: 'space-between',

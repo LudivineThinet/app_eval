@@ -97,11 +97,11 @@ export default function App() {
     "genre": "Action-Aventure"
   }
 ])
-const [Text, onChangeText] = useState('');
+const [text, onChangeText] = useState('');
 
-const AjoutJeux = () => {
-    if (Text.trim() === '') return;
-    setJeux([...jeux, Text]);
+const AddJeux = () => {
+    if (text.trim() === '') return;
+    setJeux([...jeux, text]);
     onChangeText('');
   };
 
@@ -111,9 +111,9 @@ const AjoutJeux = () => {
       
     <ListeJeux jeux={jeux} />
 
-    <AjoutJeux AjoutJeux={AjoutJeux} />
+    <AjoutJeux AddJeux={AddJeux} onChangeText={onChangeText}/>
 
-      <StatusBar style="auto" />
+    <StatusBar style="auto" />
     </View>
   );
 }

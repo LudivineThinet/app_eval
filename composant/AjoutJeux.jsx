@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Pressable, } from 'react-native';
 
 
-const AjoutJeux = ({  AjoutJeux }) => {
+const AjoutJeux = ({  AddJeux, onChangeText, }) => {
     return (
     <View style={styles.Ajouter}>
         <TextInput
@@ -11,7 +11,7 @@ const AjoutJeux = ({  AjoutJeux }) => {
           placeholder="Ajoutez un jeux"
         />
 
-        <Pressable onPress={() => AjoutJeux(true)}>
+        <Pressable onPress={() => AddJeux(true)}>
                 <Text style={styles.add}>OK</Text>
               </Pressable>
     </View>
